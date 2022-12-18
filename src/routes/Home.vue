@@ -1,7 +1,23 @@
 <template>
   <h1>
-    Home
+    click
   </h1>
 </template>
 
+<script>
 
+
+export default {
+  data(){
+    return {
+      users:[
+        {
+          name: 'click'
+        }
+      ],
+    }
+  },
+
+}
+
+</script>

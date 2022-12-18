@@ -12,6 +12,7 @@
         <input
           type="text"
           id="inp-search"
+          @keyup.enter="apply"
           placeholder="Search for song, artists etc..." />
       </label>
     </div>
@@ -71,8 +72,27 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<script>
+import axios from 'axios'
+export default {
+    methods:{
+    async apply(){
+      const LAST_API_KEY ='b567bab1cfda210be8b83a92d9f0d976'
+      const res = await axios.get( `https://ws.audioscrobbler.com/2.0/?method=album.search&album=believe&api_key=${LAST_API_KEY}&format=json` )
+      console.log(res)
+      // .then(function (res) {
+      //   console.log(res)
+      // }).catch(function (error) {
+      //   console.log(error)
+      // });
+    }
+  }
+}
+</script>
 
+
+
+<style lang="scss" scoped>
 .header {
   justify-content: space-between;
   align-items: center;
