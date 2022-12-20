@@ -8,10 +8,13 @@
           viewBox="0 0 30 30"
           width="24px"
           height="24px">
-          <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" /></svg>
+          <path
+            d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
+        </svg>
         <input
           type="text"
           id="inp-search"
+          v-model="search"
           @keyup.enter="apply"
           placeholder="Search for song, artists etc..." />
       </label>
@@ -73,24 +76,23 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 export default {
-    methods:{
-    async apply(){
-      const LAST_API_KEY ='b567bab1cfda210be8b83a92d9f0d976'
-      const res = await axios.get( `https://ws.audioscrobbler.com/2.0/?method=album.search&album=believe&api_key=${LAST_API_KEY}&format=json` )
-      console.log(res)
-      // .then(function (res) {
-      //   console.log(res)
-      // }).catch(function (error) {
-      //   console.log(error)
-      // });
-    }
+  data() {
+    return {
+      search: "",
+      name: "",
+    };
+  },
+  methods: {
+    async apply() {
+      this.$store.dispatch('music/searchMusics',{
+        search : this.search
+      })
+    },
   }
-}
+};
 </script>
-
-
 
 <style lang="scss" scoped>
 .header {
@@ -99,19 +101,19 @@ export default {
   width: 100%;
   height: 7rem;
   .input-group {
-    label{
+    label {
       position: relative;
       width: 60rem;
       height: 4rem;
       border: 1px solid #999;
       border-radius: 2rem;
-      .inp-label-svg{
+      .inp-label-svg {
         position: absolute;
         left: 10px;
         top: 50%;
         transform: translateY(-50%);
       }
-      input{
+      input {
         padding: 0 4rem;
         width: 100%;
         height: 100%;
@@ -119,7 +121,7 @@ export default {
       }
     }
   }
-  .util{
+  .util {
     flex-shrink: 0;
   }
   .login {
@@ -131,7 +133,7 @@ export default {
     border-radius: 1rem;
     border: 1px solid #ddd;
     color: #666;
-    &:hover{
+    &:hover {
       background: #666;
       color: #fff;
     }

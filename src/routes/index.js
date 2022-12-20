@@ -1,6 +1,5 @@
 import { createWebHashHistory, createRouter } from 'vue-router'
 
-import Home from "./Home";
 import Music from "./Music";
 
 export default createRouter({
@@ -8,10 +7,6 @@ export default createRouter({
 	routes: [
 		{
 			path: '/',
-			component: Home,
-		},
-		{
-			path: '/music',
 			component: Music,
 		},
 	]
