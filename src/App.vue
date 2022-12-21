@@ -1,12 +1,14 @@
 <template>
-  <div class="wrap d-flex">
-    <section class="_Gnb">
-      <Nav />
-    </section>
-    <section class="_content">
-      <Header />
-      <RouterView />
-    </section>
+  <div class="wrap">
+    <div class="inner d-flex">
+      <section class="_Gnb">
+        <Nav />
+      </section>
+      <section class="_content">
+        <Header />
+        <RouterView />
+      </section>
+    </div>
   </div>
 </template>
 
@@ -25,10 +27,15 @@ export default {
 <style lang="scss">
 @import '~/scss/main';
 @import '~/scss/reset';
+
 .wrap{
   margin: 0 auto;
   width: 100%;
   height: 100vh;
+  .inner{
+    width: 100%;
+    overflow: hidden;
+  }
   ._Gnb{
     flex-shrink: 0;
     width: 30rem;
@@ -36,8 +43,9 @@ export default {
   ._content{
     flex-shrink: 1;
     padding: 2rem;
-    width: 100%;
+    width: calc( 100% - 30rem);
     background: rgba(245, 245, 245, 0.42);
+    overflow: hidden;
   }
 }
 </style>

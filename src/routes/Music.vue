@@ -1,25 +1,36 @@
 <template>
-  <h1>
-    <div
-      v-for="music in musics"
-      :key="music.target">
-      {{ music.name }}
-    </div>
-  </h1>
+  <div class="swiper">
+    <h3>Top Artists </h3>
+    <Albumlist class="albumlist" />
+  </div>
+  <div class="playlist">
+    <MusicList />
+  </div>
 </template>
 
 <script>
+import MusicList from "~/components/MusicList";
+import Albumlist from "~/components/Albumlist";
+
 export default {
-  data(){
-    return {
-      content: "내용"
-    }
+  components:{
+    MusicList,
+    Albumlist
   },
-  computed: {
-    musics() {
-      return this.$store.state.music.musics
-    }
+  created(){
+    this.$store.dispatch('music/creatMusics')
   }
 }
-
 </script>
+
+<style lang="scss" scoped>
+h3{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.albumlist{
+  margin-bottom: 5rem;
+}
+</style>
+
