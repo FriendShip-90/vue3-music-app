@@ -1,10 +1,9 @@
 <template>
   <swiper
+    class="swiper"
     :slides-per-view="4"
-    :space-between="20"
-    :loop="true"
-    @swiper="onSwiper"
-    @slideChange="onSlideChange">
+    :space-between="10"
+    :loop="true">
     <swiper-slide
       v-for="music in musics"
       :key="music"
@@ -27,17 +26,17 @@ export default {
     Swiper,
     SwiperSlide,
   },
-  setup() {
-    const onSwiper = (swiper) => {
-      console.log(swiper);
-    };
-    const onSlideChange = () => {
-      console.log('slide change');
-    };
+  data() {
     return {
-      onSwiper,
-      onSlideChange,
-    };
+      swiperOption: {
+        slidesPerView: 4, //화면에 slide 노출 개수
+        slidesPerGroup: 1, //swiper 시 개수
+        spaceBetween: 10, //간격
+        centeredSlides: true, //현재 slide 중앙정렬
+        loop: true, // loop 여부
+        loopedSlides: 2, //loop 시 duplicate 개수
+      }
+    }
   },
 	computed:{
 		musics() {
@@ -49,7 +48,7 @@ export default {
 
 <style lang="scss">
 .swiper-slide{
-	height: 40rem;
+	height: 25rem;
 	background: #ddd;
 }
 </style>

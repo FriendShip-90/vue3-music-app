@@ -30,7 +30,7 @@ h3{
   margin-bottom: 2rem;
 }
 .albumlist{
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 </style>
 

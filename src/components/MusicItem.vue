@@ -46,7 +46,7 @@ export default {
   position: relative;
   display: flex;
   margin-bottom: 1.5rem;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   background: #fff;
   font-size: 1.5rem;
   border-radius: 1rem;
