@@ -1,13 +1,11 @@
 <template>
   <div>
-    <h3>Most Poppluar</h3>
     <ul class="music_list">
       <MusicItem 
-        v-for="( music, index ) in musics"
-        :key="music"
-        :music="music"
-        :index="index"
-        class="music_item" />
+        v-for="( artist, index ) in artists"
+        :key="artist"
+        :artist="artist"
+        :index="index" />
     </ul>
   </div>
 </template>
@@ -19,19 +17,14 @@ export default {
     MusicItem
   },
   computed: {
-    musics() {
-      return this.$store.state.music.musics
+    artists() {
+      return this.$store.state.music.artist
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-h3{
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-}
 .music_list{
 }
 

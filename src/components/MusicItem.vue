@@ -1,21 +1,19 @@
 <template>
-  <li class="music_itme">
+  <li class="music_item">
     <a
-      :href="music.url"
+      :href="artist.url"
       target="_blank">
       <figure>
         <img
           src="https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
-          :alt="music.image[1].size"
-          target="_blank" />
+          :alt="artist.image[2].size" />
       </figure>
-      {{ music.image.text }}
       <div class="albumInfo">
         <div class="albumInfo-title col-6">
-          {{ music.name }}
+          {{ artist.name }}
         </div>
         <div class="albumInfo-txt col-6">
-          {{ music.artist }}
+          {{ artist.listeners }}
         </div>
       </div>
       <input
@@ -29,7 +27,7 @@
 <script>
 export default {
   props: {
-    music:{
+    artist:{
       type: Object,
       default: () => ({})
     },
@@ -42,7 +40,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.music_itme{
+.music_item{
   position: relative;
   display: flex;
   margin-bottom: 1.5rem;

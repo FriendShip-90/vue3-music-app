@@ -1,9 +1,10 @@
 <template>
   <div class="swiper">
-    <h3>Top Artists </h3>
+    <h3>Top Track </h3>
     <Albumlist class="albumlist" />
   </div>
   <div class="playlist">
+    <h3>Most Poppluar</h3>
     <MusicList />
   </div>
 </template>
