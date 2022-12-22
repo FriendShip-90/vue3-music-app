@@ -93,6 +93,7 @@ export default {
   align-items: center;
   width: 100%;
   &-title{
+    font-weight: bold;
   }
   &-txt{
     color: #999;

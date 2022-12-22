@@ -14,8 +14,8 @@
             alt="" />
         </figure>
         <div class="d-flex align-items-center justify-content-between">
-          <h4>{{ track.name }}</h4>
-          <p>{{ track.playcount }}</p>  
+          <h4 class="text-truncate">{{ track.name }}</h4>
+          <p class="text-truncate">{{ track.playcount }}</p>  
         </div>
         <p class="artist">{{ track.artist.name }}</p>  
       </a>
@@ -49,7 +49,6 @@ export default {
         if(a.playcount > b.playcount) return -1;
         return 0;
       });
-
       return trackItemSort;
     }
 	}

@@ -18,14 +18,16 @@ export default {
   },
   computed: {
     artists() {
-      return this.$store.state.music.artist
+      // topArtistsItem 내림차순정렬
+      const topArtistsItem = this.$store.state.music.artist;
+      console.log(topArtistsItem);
+      let topArtistsItemSort = topArtistsItem.sort( (a,b) => {
+        if(a.listeners < b.listeners) return 1;
+        if(a.listeners > b.listeners) return -1;
+        return 0;
+      });
+      return topArtistsItemSort;
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.music_list{
-}
-
-</style>

@@ -39,12 +39,13 @@ export default {
   ._Gnb{
     flex-shrink: 0;
     width: 30rem;
+    box-shadow: 1rem 0 1rem rgba(246, 250, 255, 1);
   }
   ._content{
     flex-shrink: 1;
     padding: 2rem;
     width: calc( 100% - 30rem);
-    background: rgba(245, 245, 245, 0.42);
+    background: #f7faff;
     overflow: hidden;
   }
 }
