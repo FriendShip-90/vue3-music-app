@@ -35,6 +35,7 @@ export default {
 			const getTopTrack = await axios.get(
 				`https://ws.audioscrobbler.com/2.0/?&limit=6&method=chart.gettoptracks&api_key=${LAST_API_KEY}&format=json`
 			)
+			console.log(getTopTrack);
 			const getTopArtists = await axios.get(
 				`https://ws.audioscrobbler.com/2.0/?&limit=6&method=geo.gettopartists&country=spain&api_key=${LAST_API_KEY}&format=json`
 			)

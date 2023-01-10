@@ -19,8 +19,7 @@ export default {
   computed: {
     artists() {
       // topArtistsItem 내림차순정렬
-      const topArtistsItem = this.$store.state.music.artist;
-      console.log(topArtistsItem);
+      const topArtistsItem = this.$store.state.music.musics;
       let topArtistsItemSort = topArtistsItem.sort( (a,b) => {
         if(a.listeners < b.listeners) return 1;
         if(a.listeners > b.listeners) return -1;
