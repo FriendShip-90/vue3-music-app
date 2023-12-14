@@ -113,7 +113,7 @@ export default {
       margin-top: 1rem;
       text-align: center;
       p {
-        font-size: 1.6rem;
+        font-size: 1rem;
         line-height: 2.4rem;
         color: #333;
         &:first-child{
