@@ -23,12 +23,12 @@ export default {
 		async searchMusics ( { commit }, payload ) {
 			const LAST_API_KEY ='b567bab1cfda210be8b83a92d9f0d976'
 			const { search } = payload
-      const res = await axios.get( `https://ws.audioscrobbler.com/2.0/?&limit=6&method=track.search&track=${search}&api_key=${LAST_API_KEY}&format=json`)
-      const { track } = res.data.results.trackmatches
-			commit('updateState', {
-				musics: track
-			})
-		},
+			const res = await axios.get( `https://ws.audioscrobbler.com/2.0/?&limit=6&method=track.search&track=${search}&api_key=${LAST_API_KEY}&format=json`)
+			const { track } = res.data.results.trackmatches
+					commit('updateState', {
+						musics: track
+					})
+				},
 		// 기본값  
 		async creatMusics({ commit } ){
 			const LAST_API_KEY ='b567bab1cfda210be8b83a92d9f0d976'
@@ -39,7 +39,6 @@ export default {
 			const getTopArtists = await axios.get(
 				`https://ws.audioscrobbler.com/2.0/?&limit=6&method=geo.gettopartists&country=spain&api_key=${LAST_API_KEY}&format=json`
 			)
-
 			commit('updateState', { track: getTopTrack.data.tracks.track} )			
 			commit('updateState', { artist: getTopArtists.data.topartists.artist} )			
 		}
